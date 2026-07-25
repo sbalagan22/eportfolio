@@ -7,3 +7,11 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 *.log
+
+# Local source docs and tooling (not for publishing)
+Sukhman_Balagan_MASTER_Resume.md
+about-me.md
+/sukhman_balagan_resume.pdf
+/pageicon-dark.png
+AGENTS.md
+.claude/

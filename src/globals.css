@@ -1,0 +1,223 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Dark ramp with a slight cool tint, plus opal accents. */
+  --color-*: initial;
+  --color-ink: #0b0b0e;
+  --color-card: #131318;
+  --color-elevated: #1b1b22;
+  --color-line: #26262e;
+  --color-line-strong: #3a3a45;
+  --color-primary: #fafafa;
+  --color-secondary: #cfcfd6;
+  --color-tertiary: #94949e;
+  /* Opal accent palette */
+  --color-opal-blue: #b8d4ff;
+  --color-opal-pink: #ffc8e8;
+  --color-opal-mint: #c8ffd8;
+  --color-opal-lilac: #e0c8ff;
+  --color-opal-gold: #fff5c8;
+  /* Functional red, reserved */
+  --color-signal: #ef4444;
+
+  --font-*: initial;
+  --font-sans: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --tracking-display: -0.02em;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-opal-lilac);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-opal-blue);
+    outline-offset: 2px;
+  }
+}
+
+/* Opal glow system */
+@utility opal-glow-sm {
+  box-shadow:
+    0 0 16px -4px rgb(184 212 255 / 0.25),
+    0 0 32px -8px rgb(224 200 255 / 0.18);
+}
+
+@utility opal-glow {
+  box-shadow:
+    0 0 24px -4px rgb(184 212 255 / 0.35),
+    0 0 44px -8px rgb(224 200 255 / 0.25),
+    0 0 64px -12px rgb(200 255 216 / 0.2);
+}
+
+@utility opal-glow-lg {
+  box-shadow:
+    0 0 40px -4px rgb(184 212 255 / 0.4),
+    0 0 72px -8px rgb(224 200 255 / 0.3),
+    0 0 104px -16px rgb(200 255 216 / 0.22);
+}
+
+@utility opal-glow-text {
+  text-shadow:
+    0 0 20px rgb(184 212 255 / 0.45),
+    0 0 40px rgb(224 200 255 / 0.3);
+}
+
+@utility opal-dot {
+  display: inline-block;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: linear-gradient(
+    135deg,
+    var(--color-opal-blue),
+    var(--color-opal-lilac)
+  );
+  box-shadow:
+    0 0 8px rgb(184 212 255 / 0.7),
+    0 0 16px rgb(224 200 255 / 0.4);
+}
+
+/* Animated iridescent gradient text */
+@utility opal-gradient-text {
+  background: linear-gradient(
+    100deg,
+    var(--color-opal-blue) 0%,
+    var(--color-opal-pink) 25%,
+    var(--color-opal-mint) 50%,
+    var(--color-opal-lilac) 75%,
+    var(--color-opal-blue) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: opal-shimmer 8s linear infinite;
+}
+
+/* Conic iridescent border for special cards and chips */
+@utility opal-border {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.opal-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    rgb(184 212 255 / 0.7),
+    rgb(255 200 232 / 0.7),
+    rgb(200 255 216 / 0.7),
+    rgb(224 200 255 / 0.7),
+    rgb(255 245 200 / 0.7),
+    rgb(184 212 255 / 0.7)
+  );
+}
+
+/* Hackathon trophy tiers, with an animated shimmer glint */
+@utility trophy-gold {
+  animation: trophy-shimmer-gold 2.4s ease-in-out infinite;
+}
+
+@utility trophy-silver {
+  animation: trophy-shimmer-silver 2.4s ease-in-out infinite;
+}
+
+@keyframes trophy-shimmer-gold {
+  0%,
+  100% {
+    color: #d4a843;
+    filter: drop-shadow(0 0 2px rgb(245 215 120 / 0.35));
+  }
+  50% {
+    color: #ffe9a3;
+    filter: drop-shadow(0 0 7px rgb(245 215 120 / 0.85));
+  }
+}
+
+@keyframes trophy-shimmer-silver {
+  0%,
+  100% {
+    color: #9aa3b2;
+    filter: drop-shadow(0 0 2px rgb(210 220 235 / 0.3));
+  }
+  50% {
+    color: #eef2f8;
+    filter: drop-shadow(0 0 7px rgb(210 220 235 / 0.8));
+  }
+}
+
+/* Soft drifting background orbs (hero decoration) */
+@utility opal-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: opal-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes opal-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes opal-drift {
+  from {
+    transform: translate3d(-4%, -6%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6%, 8%, 0) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .opal-gradient-text {
+    animation: none;
+  }
+
+  .opal-orb {
+    animation: none;
+  }
+}
