@@ -13,6 +13,7 @@ import Nav from './components/Nav';
 import PageWrap from './components/PageWrap';
 import AboutPage from './app/about/page';
 import ExperiencePage from './app/experience/page';
+import GoalsPage from './app/goals/page';
 import HomePage from './app/page';
 
 function ScrollToTop() {
@@ -69,6 +70,14 @@ function AnimatedRoutes() {
           element={
             <PageWrap>
               <ExperiencePage />
+            </PageWrap>
+          }
+        />
+        <Route
+          path="/goals"
+          element={
+            <PageWrap>
+              <GoalsPage />
             </PageWrap>
           }
         />

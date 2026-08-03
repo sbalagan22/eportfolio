@@ -251,7 +251,7 @@ function ProjectCard({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="flex w-full items-start justify-between gap-4 rounded-2xl p-8 text-left"
+        className="group flex w-full items-start justify-between gap-4 rounded-2xl p-8 text-left"
       >
         <div className="min-w-0">
           <h3 className="text-2xl font-semibold tracking-display">

@@ -13,9 +13,14 @@ export default function Footer() {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-6 py-12 md:flex-row md:justify-between md:px-10">
-        <p className="font-mono text-xs tracking-wide text-tertiary">
-          {SITE.name}
-        </p>
+        <div className="flex flex-col items-center gap-1 md:items-start">
+          <p className="font-mono text-xs tracking-wide text-tertiary">
+            {SITE.name}
+          </p>
+          <p className="font-mono text-xs tracking-wide text-tertiary">
+            Last updated {SITE.lastUpdated}
+          </p>
+        </div>
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           {links.map(({ href, label, icon: Icon, external }) => (
             <li key={label}>

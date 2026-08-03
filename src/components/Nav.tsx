@@ -5,6 +5,7 @@ const links = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/experience', label: 'Experience' },
+  { to: '/goals', label: 'Goals' },
 ];
 
 export default function Nav() {
