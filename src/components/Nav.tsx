@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 
 const links = [
   { to: '/', label: 'Home' },
+  { to: '/purpose', label: 'Purpose' },
   { to: '/about', label: 'About' },
   { to: '/experience', label: 'Experience' },
+  { to: '/projects', label: 'Projects' },
   { to: '/goals', label: 'Goals' },
 ];
 
@@ -15,7 +17,7 @@ export default function Nav() {
     <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <nav
         aria-label="Primary"
-        className="flex items-center gap-0.5 rounded-full border border-line bg-ink/70 p-1.5 opal-glow-sm backdrop-blur-xl sm:gap-1"
+        className="flex max-w-full flex-wrap items-center justify-center gap-0.5 rounded-[1.75rem] border border-line bg-ink/70 p-1.5 opal-glow-sm backdrop-blur-xl sm:gap-1 sm:rounded-full"
       >
         {links.map((link) => {
           const isActive =

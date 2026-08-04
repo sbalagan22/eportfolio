@@ -14,7 +14,10 @@ import PageWrap from './components/PageWrap';
 import AboutPage from './app/about/page';
 import ExperiencePage from './app/experience/page';
 import GoalsPage from './app/goals/page';
+import ProjectsPage from './app/projects/page';
+import PurposePage from './app/purpose/page';
 import HomePage from './app/page';
+import { usePageTitle } from './lib/usePageTitle';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -25,6 +28,8 @@ function ScrollToTop() {
 }
 
 function NotFound() {
+  usePageTitle('Page not found · Sukhman Balagan');
+
   return (
     <section className="mx-auto flex min-h-[70dvh] w-full max-w-7xl flex-col items-center justify-center px-6 pt-24 text-center md:px-10">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-tertiary">
@@ -58,10 +63,26 @@ function AnimatedRoutes() {
           }
         />
         <Route
+          path="/purpose"
+          element={
+            <PageWrap>
+              <PurposePage />
+            </PageWrap>
+          }
+        />
+        <Route
           path="/about"
           element={
             <PageWrap>
               <AboutPage />
+            </PageWrap>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <PageWrap>
+              <ProjectsPage />
             </PageWrap>
           }
         />

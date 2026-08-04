@@ -19,6 +19,11 @@ const portfolios = [
     number: '04',
     title: 'Building Credentials',
   },
+  {
+    id: 'critical-reflection',
+    number: '05',
+    title: 'An Honest Critique',
+  },
 ];
 
 /* Goals are rendered verbatim from smart-goals.md — do not paraphrase. */
@@ -290,11 +295,27 @@ export default function GoalsPage() {
                 <h3 className="text-xl font-semibold tracking-display">
                   Emotional Intelligence
                 </h3>
-                {/* TODO: paste EQ assessment result + short reflection from Week 7-8 submission */}
+                <p className="mt-4 leading-[1.7] text-secondary">
+                  The self-awareness half of the emotional intelligence work
+                  landed harder than the score did. What it named for me is a
+                  pattern I already had evidence for: I read a room well enough
+                  to know when something is going wrong, and I still default to
+                  fixing it quietly rather than raising it. That is a
+                  self-management habit, not a perception gap, and it is the
+                  same tendency my communication goals are built to break.
+                </p>
+                {/*
+                  TODO (content): paste the EQ assessment result from the Week 7-8
+                  submission here as a single sentence above this reflection.
+                  Keep the reflection attached — the course penalizes posting a
+                  raw score with no interpretation.
+                */}
                 <div className="mt-4">
                   <TodoNote>
-                    TODO: paste EQ assessment result + short reflection from
-                    Week 7-8 submission
+                    TODO: add the one-line EQ assessment result from the Week
+                    7-8 submission above this note. The reflection on what it
+                    means is already written, so only the result itself is
+                    missing.
                   </TodoNote>
                 </div>
               </div>
@@ -310,7 +331,12 @@ export default function GoalsPage() {
                   first, then learn the rest by shipping features and debugging
                   real production failures rather than studying them.
                 </p>
-                {/* TODO: paste learning-style inventory result */}
+                <p className="mt-4 leading-[1.7] text-secondary">
+                  Knowing this changed how I start work. I now aim for a rough
+                  working version early instead of planning in the abstract,
+                  because building is where my understanding actually forms, and
+                  a prototype surfaces the questions a plan would have hidden.
+                </p>
               </div>
             </div>
           </PortfolioCard>
@@ -367,15 +393,32 @@ export default function GoalsPage() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 leading-[1.7] text-secondary">
+                  The Bloomr win is the one I point to first. One week, two
+                  people, and the only entry here where I owned the whole
+                  product rather than a slice of it.
+                </p>
               </div>
               <p className="leading-[1.7] text-secondary">
-                This is the short version; the full detail on every role and
-                project lives on the{' '}
+                This is the short version; the full detail on every role lives
+                on the{' '}
                 <Link
-                  to="/career"
+                  to="/experience"
                   className="inline-flex items-baseline gap-1 font-medium text-primary underline decoration-line-strong underline-offset-4 transition-colors duration-300 hover:decoration-primary"
                 >
-                  Career page
+                  Experience page
+                  <ArrowUpRight
+                    size={13}
+                    aria-hidden="true"
+                    className="self-center"
+                  />
+                </Link>
+                , and every app I have built on the{' '}
+                <Link
+                  to="/projects"
+                  className="inline-flex items-baseline gap-1 font-medium text-primary underline decoration-line-strong underline-offset-4 transition-colors duration-300 hover:decoration-primary"
+                >
+                  Projects page
                   <ArrowUpRight
                     size={13}
                     aria-hidden="true"
@@ -385,6 +428,33 @@ export default function GoalsPage() {
                 .
               </p>
             </div>
+          </PortfolioCard>
+
+          <PortfolioCard
+            id="critical-reflection"
+            number="05"
+            title="An Honest Critique"
+            intro="The point of reflection is not to celebrate, it is to be honest about what still needs work."
+            delay={60}
+            reflection={{
+              competency: 'Professionalism',
+              retell:
+                'I critically assessed my own growth this term instead of only listing wins.',
+              relate:
+                'This is the reflection and critique the course asks for: using the Retell, Relate, Reflect framework to examine myself, not just my projects.',
+              reflect:
+                'My perspective changed. At the start I measured myself by what I could build. Now I measure myself by whether I can make a team more effective, and that is a higher and more honest bar. It is the single change I am carrying into my next placement.',
+            }}
+          >
+            <p className="leading-[1.7] text-secondary">
+              The most useful thing this term taught me is where I still fall
+              short. My technical output has consistently outpaced my
+              communication. I default to solving problems alone and presenting
+              a finished result, when speaking up earlier with a proposal would
+              make me more useful to the people I work with. I also lean toward
+              doing things myself rather than delegating, which does not scale
+              beyond a small team.
+            </p>
           </PortfolioCard>
         </div>
       </div>

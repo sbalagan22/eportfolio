@@ -1,6 +1,7 @@
 import { Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../../components/BrandIcons';
 import Kicker from '../../components/Kicker';
+import Reflection from '../../components/Reflection';
 import Reveal from '../../components/Reveal';
 import { SITE } from '../../lib/site';
 import { usePageTitle } from '../../lib/usePageTitle';
@@ -54,6 +55,12 @@ export default function AboutPage() {
               ))}
             </ul>
           </Reveal>
+          <Reveal delay={180}>
+            <p className="mx-auto mt-8 max-w-2xl text-secondary">
+              This page is here to answer the first question any reader has:
+              who is this, and what shaped the way they work.
+            </p>
+          </Reveal>
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-12">
@@ -63,6 +70,16 @@ export default function AboutPage() {
                 <p className="leading-[1.8] text-secondary">{paragraph}</p>
               </Reveal>
             ))}
+            <Reveal delay={240}>
+              <div className="rounded-2xl border border-line bg-card px-8 pb-8 pt-2">
+                <Reflection
+                  competency="Life-Long Learning"
+                  retell="I wrote my life story for COOP 2100, tracing where I grew up, why I chose Computer Science, and who shaped my work ethic."
+                  relate="This is the self-discovery work the course opens with: naming the events that formed me rather than assuming I already knew why I work the way I do."
+                  reflect="Writing it made one thing obvious that I had never said out loud. The discipline I am proud of is not something I invented, it is my mom's, and the projects I finish are the ones where I hold myself to her standard of working when nobody is watching."
+                />
+              </div>
+            </Reveal>
           </div>
 
           <div className="space-y-6 lg:col-span-5">
